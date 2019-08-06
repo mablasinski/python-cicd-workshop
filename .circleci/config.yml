@@ -28,11 +28,8 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
+          name: Run Tests
+          command: ~/.local/bin/pytest
 
       - save_cache:
           paths:
@@ -45,10 +42,9 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          name: run tests
+          name: Run Tests
           command: |
-            . venv/bin/activate
-            python manage.py test
+			pip install --user --no-cache-dir -r requirements.txt
 
       - store_artifacts:
           path: test-reports
