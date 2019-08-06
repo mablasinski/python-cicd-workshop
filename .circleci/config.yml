@@ -42,7 +42,7 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          name: Run Tests
+          name: Install Python Dependencies
           command: |
 			pip install --user --no-cache-dir -r requirements.txt
 
